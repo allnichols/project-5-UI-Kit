@@ -1,0 +1,13 @@
+//headers
+
+.headline {
+	@extend %center-align;
+	&--primary{
+		@extend %primary;
+		}
+	
+	&--secondary{
+		@extend %secondary;
+		}
+ 
+}

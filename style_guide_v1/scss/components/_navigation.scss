@@ -1,0 +1,30 @@
+///Navigation
+
+.nav {
+	list-style-type: none;
+	@extend %center-align;
+	
+	@include mq(medium){
+	@include flexbox;
+	@include flex-direction(row);
+	margin-left:em(80px);
+	margin-right:em(80px);
+	}
+}
+
+.nav__item {
+	@extend %item;
+	
+	a {
+		@extend %nav-a;
+		
+		@include mq(medium) {
+			margin-left:-20px;
+			font-size:em(20px);
+		}
+	}
+
+	a:hover {
+		@extend %nav-hover;
+	}
+}
