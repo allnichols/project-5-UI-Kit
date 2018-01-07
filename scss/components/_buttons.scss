@@ -1,0 +1,12 @@
+//buttons
+
+.theme__colors {
+	@include grid-colors($grid-colors);
+	@include button-colors($button-colors);
+}
+
+[class^="btn--"] {
+	@extend %btn;
+	 width:100%;
+	 margin:.5em; 
+}

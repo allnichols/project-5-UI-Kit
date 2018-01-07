@@ -1,0 +1,29 @@
+//================
+//Card
+//================
+
+.card {
+	text-align:left;
+	line-height: $line-h;
+	font-size: $text-size;
+	margin-right:em(15px);
+	margin-left:em(15px);
+}
+
+//===============
+//blockquote
+//===============
+
+.blockquote {
+	font-weight:bolder;
+	padding-left:20px;
+	@extend %border;
+	margin-top:em(50px);
+	margin-bottom:em(45px);
+
+	@include mq(medium){
+		margin-top:em(25px);
+		margin-right:em(50px);
+		margin-left:0;
+	}
+}

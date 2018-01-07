@@ -1,0 +1,127 @@
+//Mixins------------------//
+
+// BEM selectors
+
+@mixin el($element) {
+	&__#{$element} {
+		@content;
+	}
+}
+@mixin mod($modifier) {
+	&--#{$modifier} {
+	@content
+	}
+}
+
+//Adjacent sibling margins
+
+@mixin doubly($margin: 1em) {
+	& + &	{
+		margin-left: $margin;
+		@content;
+	}
+}
+
+//Theme Colors Modifier classes
+
+@mixin grid-colors($map) {
+	@each $theme, $color in $map {
+	&.grid__#{$theme} {
+		background-color: $color;
+	}
+  }
+}
+
+@mixin button-colors($map) {
+	@each $theme, $color in $map {
+		&.btn--#{$theme} {
+		background-color: $color;
+		}
+	}
+}
+
+
+// Flexbox settings
+
+// Flexbox display
+@mixin flexbox() {
+  display: flex;
+}
+// Flex Flow Direction
+// - applies to: flex containers
+@mixin flex-direction($direction) {
+  flex-direction: $direction;
+}
+// Axis Alignment
+// - applies to: flex containers
+@mixin justify-content($justify) {
+  justify-content: $justify;
+}
+// Cross-axis Alignment
+// - applies to: flex containers
+@mixin align-items($align) {
+
+  align-items: $align;
+}
+// Cross-axis Alignment
+// - applies to: flex items
+@mixin align-self($align) {
+
+  align-self: $align;
+}
+// Display Order
+// - applies to: flex items
+// <integer>
+@mixin order($val) {
+  order: $val;
+}
+
+// Flex grow factor
+// - applies to: flex items
+// <number>
+@mixin flex-grow($grow) {
+  flex-grow: $grow;
+}
+// Flex basis
+// - the initial main size of the flex item
+@mixin flex-basis($width: $g-col-width) {
+  flex-basis: $width;
+}
+
+
+
+// Media queries
+
+@mixin mq($break) {
+  @if $break == "small" {
+    @media (min-width: $brkpoint--sm) and (max-width: $brkpoint--md) {
+      @content;
+    }
+  }
+  @else if $break == "medium" {
+    @media (min-width: $brkpoint--md + 1) {
+      @content;
+    }
+  }
+  @else if $break == "large" {
+    @media (min-width: $brkpoint--lg) {
+      @content;
+    }
+  }
+  @else {
+    @error "No value could be retrieved for `#{$break}`. "
+  }
+}
+
+// Grid Cols
+
+@mixin g-width {
+  @for $i from 1 through $g-col-count {
+    &--#{$i}{
+
+      flex-basis:percentage(($g-col-width * $i)/100);
+      
+      //@include flex-grow(#{$i});
+    }
+  }
+}
